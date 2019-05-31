@@ -36,6 +36,19 @@ class LinkedList:
         new_node.next = self.head
         self.head = new_node
 
+    def get_nth_data(self, pos):
+        cur = self.head
+        counter = 0
+        index = pos - 1
+
+        while cur:
+            if counter == index:
+                return cur.data
+            counter += 1
+            cur = cur.next
+        
+        return None
+
 
 llist = LinkedList()
 llist.append("A")
@@ -45,3 +58,5 @@ llist.append("S")
 llist.append("M")
 
 llist.print_list()
+
+print("The 4rd element of the list: ", llist.get_nth_data(4))
