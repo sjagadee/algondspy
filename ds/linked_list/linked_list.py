@@ -43,19 +43,29 @@ class LinkedList:
         counter = 0
         index = pos - 1
 
-        if self.head == None and pos == 1:
-            self.head = new_node
-            return
-        elif pos == 1:
-            new_node.next = cur
-            self.head = new_node
-        else:
-            while counter < index and cur:
-                prev = cur
-                cur = cur.next
-                counter += 1
-            prev.next = new_node
-            new_node.next = cur
+        length = 0
+
+        while cur:
+            length += 1
+            cur = cur.next
+
+        print("length", length)
+        cur = self.head
+
+        if pos <= length + 1:
+            if self.head == None and pos == 1:
+                self.head = new_node
+                return
+            elif pos == 1:
+                new_node.next = cur
+                self.head = new_node
+            else:
+                while counter < index and cur:
+                    prev = cur
+                    cur = cur.next
+                    counter += 1
+                prev.next = new_node
+                new_node.next = cur
 
     def get_nth_data(self, pos):
         cur = self.head
@@ -78,7 +88,7 @@ llist.prepend("E")
 llist.append("S")
 llist.append("M")
 
-llist.add_at_kth_pos("N", 10)
+llist.add_at_kth_pos("N", 1)
 
 llist.print_list()
 
